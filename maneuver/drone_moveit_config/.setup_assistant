@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: maneuver_bringup
+    relative_path: urdf/drone.urdf
+  srdf:
+    relative_path: config/drone.srdf
+  package_settings:
+    author_name: Egor
+    author_email: example@email.com
+    generated_timestamp: 1757963404

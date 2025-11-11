@@ -1,0 +1,15 @@
+planning_plugin: ompl_interface/OMPLPlanner
+request_adapters:
+  - default_planner_request_adapters/ResolveConstraintFrames
+  - default_planner_request_adapters/FixWorkspaceBounds
+  - default_planner_request_adapters/FixStartStateBounds
+  - default_planner_request_adapters/FixStartStateCollision
+  - default_planner_request_adapters/FixStartStatePathConstraints
+start_state_max_bounds_error: 0.1
+
+drone_group:  # Для вашей группы
+  planner_configs:
+    - RRTConnectkConfigDefault  # Основной для быстрых путей в 3D
+    - PRMkConfigDefault  # Для глобального планирования
+  projection_evaluator: joints(virtual_joint/x,virtual_joint/y,virtual_joint/z)  # Проекция для 3D
+  longest_valid_segment_fraction: 0.005  # Тюнинг для дрона: меньшее значение для точности

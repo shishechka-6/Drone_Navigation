@@ -1,0 +1,32 @@
+# Local Planner Plugin Configuration
+robot_description: "robot_description"
+
+local_planning_action_name: "local_planning_action"
+
+# Plugins
+trajectory_operator_plugin_name: "moveit_hybrid_planning/SimpleSampler"
+local_constraint_solver_plugin_name: "moveit_hybrid_planning/ForwardTrajectory"
+
+# Planning & execution parameters
+local_planning_frequency: 100.0  # Hz
+global_solution_topic: "global_trajectory"
+
+# Output topic for local planner commands
+local_solution_topic: "/joint_commands"  # update to your controller topic
+local_solution_topic_type: "std_msgs/msg/Float64MultiArray"  # or trajectory_msgs/JointTrajectory
+
+# Optional: publish joint positions/velocities (for drones with no joints, mostly positions)
+publish_joint_positions: true
+publish_joint_velocities: false
+
+# Planning group — for drones, you can use a generic "base" group
+group_name: "drone_group"
+
+# Subscribed topics
+monitored_planning_scene: "/planning_scene"
+collision_object_topic: "/collision_object"
+joint_states_topic: "/joint_states"
+
+# ForwardTrajectory plugin parameter
+stop_before_collision: true
+

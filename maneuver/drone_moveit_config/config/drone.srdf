@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="drone">
+  <group name="drone_group">
+    <link name="base_link"/>
+    <joint name="prop1_joint"/>
+  </group>
+
+  <group_state name="default_pose" group="drone_group">
+    <joint name="virtual_joint" value="0 0 0 0 0 0 1"/>
+  </group_state>
+
+  <!-- Floating joint -->
+  <virtual_joint name="virtual_joint" type="floating" parent_frame="map" child_link="base_link"/>
+</robot>
+

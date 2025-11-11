@@ -1,0 +1,35 @@
+# Which plugin to load for global planning
+global_planner_name: "moveit_hybrid_planning/MoveItPlanningPipeline"
+
+# Name for the action interface (clients use this to send goals)
+global_planning_action_name: "global_planning_action"
+
+planning_scene_monitor_options:
+  name: "planning_scene_monitor"
+  robot_description: "robot_description"
+  joint_state_topic: "/joint_states"
+  attached_collision_object_topic: "/moveit_cpp/planning_scene_monitor"
+  publish_planning_scene_topic: "/planning_scene"
+  monitored_planning_scene_topic: "/planning_scene"
+  wait_for_initial_state_timeout: 10.0
+  # Important: octomap integration
+  monitored_planning_scene_publish_geometry_updates: true
+  monitored_planning_scene_publish_state_updates: true
+  monitored_planning_scene_publish_transforms_updates: true
+
+occupancy_map_monitor:
+  octomap_frame: "map"
+  octomap_topic: "/octomap_full"
+  max_range: 5.0
+  resolution: 0.05
+    
+
+
+planning_pipelines:
+  pipeline_names: ["ompl"]
+
+plan_request_params:
+  planning_attempts: 1
+  planning_pipeline: ompl
+  max_velocity_scaling_factor: 1.0
+  max_acceleration_scaling_factor: 1.0

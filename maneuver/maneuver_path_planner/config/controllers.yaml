@@ -1,0 +1,7 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    controllers:
+      dummy_controller:
+        type: "FollowJointTrajectory"
+        joints: ["prop1_joint"]

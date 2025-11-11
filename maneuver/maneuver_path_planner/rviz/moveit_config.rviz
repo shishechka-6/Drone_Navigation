@@ -1,0 +1,67 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Visual Enabled: true
+      Collision Enabled: false
+
+    - Class: moveit_rviz_plugin/PlanningScene
+      Enabled: true
+      Name: PlanningScene
+      Robot Description: robot_description
+      Planning Scene Topic: /planning_scene #возможно, стоит поменять на /move_group/monitored_planning_scene, если не работает
+      Scene Name: default
+
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Trajectory
+      Marker Topic: /display_planned_path
+
+    - Class: octomap_rviz_plugins/OccupancyMap
+      Enabled: true
+      Name: OctoMap
+      Topic: /octomap_full
+      Alpha: 0.7
+      Color Scheme: map
+
+  Enabled: true
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 25
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 1
+      Pitch: 0.5
+      Yaw: 0.8
+      Target Frame: map
+

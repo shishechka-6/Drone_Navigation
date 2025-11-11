@@ -1,0 +1,6 @@
+RRTstarkConfigDefault:
+    type: geometric::RRTstar
+    optimization_objective: MaximizeMinClearanceObjective
+    range: 0.0
+    goal_bias: 0.05
+    delay_collision_checking: 1
